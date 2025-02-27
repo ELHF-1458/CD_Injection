@@ -181,7 +181,7 @@ def create_global_file(df_source):
 
     results = {}
     if "Somme de DRDIST" in df_source.columns:
-        results["DRDIST"] = process_column(df_source.copy(), "Somme de DRDIST")
+        results["Réel"] = process_column(df_source.copy(), "Somme de DRDIST")
     if "Atterrissage" in df_source.columns:
         results["Atterrissage"] = process_column(df_source.copy(), "Atterrissage")
     if "Injection" in df_source.columns:
@@ -278,15 +278,14 @@ def make_plots_for_sheet(sheet_name, file_excel):
         var_name="Palier",
         value_name="Taux (%)"
     )
-    df_taux_total["Palier"] = df_taux_total["Palier"].str.replace("Taux de réalisation ", "Taux de réalisation (")
-    df_taux_total["Palier"] += ")"
+    df_taux_presta["Palier"] = df_taux_presta["Palier"].str.replace("Taux de réalisation ", "", regex=False)
 
     fig1 = px.bar(
         df_taux_total,
         x="Palier",
         y="Taux (%)",
         text="Taux (%)",
-        title=f"{sheet_name} - Total général - Taux de réalisation par palier",
+        title=f"Taux de réalisation par palier ({sheet_name}) ",
         color_discrete_sequence=["#1f4486"]
     )
     fig1.update_layout(template=None)
@@ -342,8 +341,7 @@ def make_plots_for_sheet(sheet_name, file_excel):
         var_name="Palier",
         value_name="Taux (%)"
     )
-    df_taux_presta["Palier"] = df_taux_presta["Palier"].str.replace("Taux de réalisation ", "Taux de réalisation (")
-    df_taux_presta["Palier"] += ")"
+    df_taux_presta["Palier"] = df_taux_presta["Palier"].str.replace("Taux de réalisation ", "", regex=False)
 
     fig2 = px.bar(
         df_taux_presta,
@@ -352,7 +350,7 @@ def make_plots_for_sheet(sheet_name, file_excel):
         text="Taux (%)",
         color="Palier",
         barmode="group",
-        title=f"{sheet_name} - Taux de réalisation par palier et par prestataire",
+        title=f"Taux de réalisation par palier et par prestataire ({sheet_name})",
         color_discrete_sequence=["#1f4486", "#3d9ddb", "#dd2b17", "#275c20", "#dca433"]
     )
     fig2.update_layout(template=None)
@@ -417,7 +415,7 @@ def make_plots_for_sheet(sheet_name, file_excel):
         text="Nombre",
         color="Palier",
         barmode="group",
-        title=f"{sheet_name} - Nombre d'éléments par palier et par prestataire",
+        title=f"Nombre d'éléments par palier et par prestataire ({sheet_name})",
         color_discrete_sequence=["#1f4486", "#3d9ddb", "#dd2b17", "#275c20", "#dca433"]
     )
     fig3.update_layout(template=None)
