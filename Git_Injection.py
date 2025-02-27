@@ -278,7 +278,7 @@ def make_plots_for_sheet(sheet_name, file_excel):
         var_name="Palier",
         value_name="Taux (%)"
     )
-    df_taux_presta["Palier"] = df_taux_presta["Palier"].str.replace("Taux de réalisation ", "", regex=False)
+    df_taux_total["Palier"] = df_taux_total["Palier"].str.replace("Taux de réalisation ", "", regex=False)
 
     fig1 = px.bar(
         df_taux_total,
