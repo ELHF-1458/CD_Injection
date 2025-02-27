@@ -464,7 +464,8 @@ def make_plots_for_sheet(sheet_name, file_excel):
 # FONCTION PRINCIPALE STREAMLIT
 # =============================
 def main():
-    st.title("Analyse Recap - DRDIST / Atterrissage / Injection")
+    st.markdown("<h1 style='text-align: center;'>Analyse Recap - Réel / Atterrissage / Injection</h1>", unsafe_allow_html=True)
+
     uploaded_file = st.file_uploader("Choisissez votre fichier Excel (Recap.xlsx)", type=["xlsx"])
 
     if uploaded_file is not None:
