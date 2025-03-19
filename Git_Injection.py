@@ -8,6 +8,10 @@ import pandas as pd
 import plotly.express as px
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Font
+import warnings
+
+warnings.filterwarnings("ignore")
+
 
 # =============================
 # CONFIGURATION DU LOGGING
