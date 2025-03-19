@@ -11,6 +11,7 @@ from openpyxl.styles import PatternFill, Font
 import warnings
 
 warnings.filterwarnings("ignore")
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 # =============================
