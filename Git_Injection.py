@@ -40,7 +40,7 @@ st.markdown(
 col1, col2, col3 = st.columns([1.5, 2, 1.5])
 with col2:
     if os.path.exists(LOGO_PATH):
-        st.image(LOGO_PATH, width=650, output_format="PNG", caption="", use_column_width=False)
+        st.image(LOGO_PATH, width=650, output_format="PNG", caption="", use_container_width=False)
     else:
         st.write("Logo non trouvé.")
 
